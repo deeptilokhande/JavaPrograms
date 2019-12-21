@@ -66,25 +66,7 @@ public class Controller {
 
     @GetMapping("/charcount/{line}")
     public String countCharsInLine(@PathVariable String line){
-        StringBuilder str=new StringBuilder();
-        int characterCount[] = new int[26];
-
-       for(int i=0;i<line.length();i++){
-
-           if(line.charAt(i)>=65&& line.charAt(i)<=90)
-              characterCount[(line.charAt(i)-65)]++;
-           else  if(line.charAt(i)>=97&& line.charAt(i)<=122)
-               characterCount[line.charAt(i)-97]++;
-
-       }
-
-       for(int i=0;i<26;i++){
-           if(characterCount[i]>0)
-               str.append((char)(i+97)+"-->"+characterCount[i]+"\n");
-       }
-       return  str.toString();
-
-
+           return ProgramsUtil.countCharsInWord(line);
 
     }
 
